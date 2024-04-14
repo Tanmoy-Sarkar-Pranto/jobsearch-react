@@ -10,7 +10,7 @@ const DashboardContext = createContext()
 export const loader = async () => {
   try {
     const { data } = await customFetch("/users/current-user")
-    console.log(data)
+    // console.log(data)
     return data
   } catch (error) {
     return redirect("/")

@@ -1,6 +1,6 @@
 import React from "react"
 import { Link, Form, useNavigation, redirect } from "react-router-dom"
-import { Logo, FormRow } from "../components"
+import { Logo, FormRow, SubmitBtn } from "../components"
 import Wrapper from "../assets/wrappers/RegisterAndLoginPage"
 import customFetch from "../utils/customFetch"
 import { toast } from "react-toastify"
@@ -36,9 +36,7 @@ const Register = () => {
         <FormRow type="email" name="email" />
         <FormRow type="password" name="password" />
 
-        <button type="submit" className="btn btn-block" disabled={isSubmitting}>
-          {isSubmitting ? "submitting..." : "submit"}
-        </button>
+        <SubmitBtn formBtn={true} />
         <p>
           Already a member?
           <Link to="/login" className="member-btn">
