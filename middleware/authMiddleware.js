@@ -1,4 +1,5 @@
 import {
+  BadRequestError,
   UnauthenticatedError,
   UnauthorizedError,
 } from "../errors/customError.js"
@@ -11,7 +12,8 @@ export const authenticateUser = async (req, res, next) => {
   }
   try {
     const { userID, role } = verifyJWT(token)
-    req.user = { userID, role }
+    const testUser = userID === "661b7799d346a45d033b501b"
+    req.user = { userID, role, testUser }
     next()
   } catch (error) {
     throw new UnauthenticatedError("authentication invalid")
@@ -25,4 +27,11 @@ export const authorizePermissions = (...roles) => {
     }
     next()
   }
+}
+
+export const checkForTestUser = (req, res, next) => {
+  if (req.user.testUser) {
+    throw new BadRequestError("Not authorized to change")
+  }
+  next()
 }
