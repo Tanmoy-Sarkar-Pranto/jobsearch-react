@@ -1,5 +1,7 @@
 # Job Tracker Web Application
 
+[Live Site](https://jobsearch-react.onrender.com)
+
 ## Introduction
 
 This is a full stack web application built using the MERN (MongoDB, Express.js, React.js, Node.js) stack for tracking jobs. The application allows users to manage their job search process by adding, editing, and deleting job entries. It also provides user authentication functionality with user registration and login features, along with the ability to upload avatars.
